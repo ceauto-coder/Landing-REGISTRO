@@ -20,11 +20,18 @@ const Section = ({ chip, title, sub, children, id }: { chip?: string; title: Rea
 const Icon = ({ children }: { children: string }) => (
   <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-brand text-2xl shadow-glow">{children}</div>
 );
-const Video = ({ src, title }: { src: string; title: string }) => (
-  <div className="aspect-video overflow-hidden rounded-2xl border border-line">
-    <iframe className="h-full w-full" src={src} title={title} loading="lazy" allowFullScreen />
-  </div>
-);
+const Video = ({ src, title }: { src: string; title: string }) =>
+  // En vista previa embebida (VITE_NO_EMBED) no se permiten iframes: se muestra un enlace al video
+  import.meta.env.VITE_NO_EMBED ? (
+    <a href={src.replace("/embed/", "/watch?v=")} target="_blank" rel="noreferrer"
+      className="grid aspect-video place-items-center rounded-2xl border border-line bg-card text-center">
+      <span><span className="grad-text block text-5xl">▶</span><span className="mt-2 block text-mute">{title} · ver en YouTube</span></span>
+    </a>
+  ) : (
+    <div className="aspect-video overflow-hidden rounded-2xl border border-line">
+      <iframe className="h-full w-full" src={src} title={title} loading="lazy" allowFullScreen />
+    </div>
+  );
 
 export default function App() {
   return (
