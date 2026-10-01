@@ -49,7 +49,7 @@ export default function App() {
       <header className="border-b border-line">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-8 lg:px-10 py-4">
           <span className="grad-text text-base font-bold leading-tight sm:text-xl">✦ {BRAND}</span>
-          <a href={go} className="rounded-[10px] border border-violet-deep bg-card2 px-4 sm:px-8 lg:px-10 py-2 text-sm font-semibold text-violet">Registro gratis</a>
+          <a href={go} className="shrink-0 whitespace-nowrap rounded-[10px] border border-violet-deep bg-card2 px-4 py-2 text-sm font-semibold text-violet">Registro gratis</a>
         </nav>
       </header>
 
