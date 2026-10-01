@@ -3,6 +3,8 @@ import RegisterForm from "./components/RegisterForm";
 import Countdown from "./components/Countdown";
 
 const go = "#registro";
+// Solo se muestran los datos de contacto que estén definidos
+const contact = [SPEAKER.instagram, SPEAKER.email, SPEAKER.phone].filter(Boolean).join(" · ");
 const Cta = ({ children = "Asegurar Mi Lugar Gratis →" }: { children?: string }) => (
   <a href={go} className="btn">{children}</a>
 );
@@ -143,7 +145,7 @@ export default function App() {
             <div className="mb-4 grid h-20 w-20 place-items-center rounded-2xl bg-brand text-3xl">👤</div>
             <h3 className="text-2xl font-bold">{SPEAKER.name}</h3><div className="text-teal">{SPEAKER.role}</div>
             <p className="mt-3 text-mute">{SPEAKER.bio}</p>
-            <p className="mt-4 text-sm text-mute">{SPEAKER.instagram} · {SPEAKER.email} · {SPEAKER.phone}</p>
+            {contact && <p className="mt-4 text-sm text-mute">{contact}</p>}
           </div>
         </div>
       </Section>
@@ -171,7 +173,7 @@ export default function App() {
       <footer className="border-t border-line px-4 sm:px-8 lg:px-10 py-10 text-center text-sm text-mute">
         <div className="grad-text mb-2 text-lg font-bold">✦ {BRAND}</div>
         <p>Organizado por TU MARCA · Comunidad · Metodología práctica · Plantillas y prompts · Acompañamiento</p>
-        <p className="mt-2">{SPEAKER.email} · {SPEAKER.phone}</p>
+        {contact && <p className="mt-2">{contact}</p>}
       </footer>
     </div>
   );
