@@ -142,7 +142,9 @@ export default function App() {
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <Video src={VIDEO_2} title="Speaker" />
           <div className="card p-6">
-            <div className="mb-4 grid h-20 w-20 place-items-center rounded-2xl bg-brand text-3xl">👤</div>
+            {SPEAKER.photo
+              ? <img src={`${import.meta.env.BASE_URL}${SPEAKER.photo}`} alt={SPEAKER.name} loading="lazy" className="mb-4 h-28 w-28 rounded-2xl border border-violet-deep object-cover object-top shadow-glow" />
+              : <div className="mb-4 grid h-20 w-20 place-items-center rounded-2xl bg-brand text-3xl">👤</div>}
             <h3 className="text-2xl font-bold">{SPEAKER.name}</h3><div className="text-teal">{SPEAKER.role}</div>
             <p className="mt-3 text-mute">{SPEAKER.bio}</p>
             {contact && <p className="mt-4 text-sm text-mute">{contact}</p>}

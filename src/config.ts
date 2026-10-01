@@ -8,6 +8,8 @@ export const WEBHOOK_URL = (import.meta.env.VITE_WEBHOOK_URL as string | undefin
 export const SPEAKER = {
   name: "David Rodriguez Pinto",
   role: "Fundador de IA University",
+  // Foto: guarda la imagen en public/speaker.jpg y pon "speaker.jpg" (vacío = ícono por defecto)
+  photo: "",
   bio: "Educador y emprendedor en inteligencia artificial. Ayuda a personas y empresas a entender y usar la IA de forma práctica, simple y rentable.",
   // Contacto del organizador: déjalos vacíos para ocultarlos en la página
   instagram: "",
