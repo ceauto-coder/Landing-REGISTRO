@@ -23,7 +23,7 @@ const Icon = ({ children }: { children: string }) => (
 // Video propio (vertical 9:16) con póster; se reproduce con controles nativos
 const PromoVideo = () => (
   <div className="mx-auto w-full max-w-[min(100%,320px)] md:max-w-[340px] lg:max-w-[380px] overflow-hidden rounded-3xl border border-violet-deep bg-card shadow-glow">
-    <video className="aspect-[9/16] w-full object-cover" src="/video/promo.mp4" poster="/video/poster.jpg"
+    <video className="aspect-[9/16] w-full object-cover" src={`${import.meta.env.BASE_URL}video/promo.mp4`} poster={`${import.meta.env.BASE_URL}video/poster.jpg`}
       controls playsInline preload="metadata" />
   </div>
 );
