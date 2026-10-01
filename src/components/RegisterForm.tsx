@@ -91,7 +91,7 @@ export default function RegisterForm({ id }: { id?: string }) {
           </button>
           <input name="whatsapp" required inputMode="tel" maxLength={20} className="input" placeholder="300 123 4567" autoComplete="tel-national" />
           {open && (
-            <div className="absolute left-0 top-full z-20 mt-2 w-72 rounded-xl border border-line bg-card p-2 shadow-xl">
+            <div className="absolute left-0 top-full z-20 mt-2 w-[min(18rem,calc(100vw-3rem))] rounded-xl border border-line bg-card p-2 shadow-xl">
               <input autoFocus value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar país…" className="input mb-2" />
               <ul className="max-h-56 overflow-auto">
                 {filtered.map(({ c, i }) => (

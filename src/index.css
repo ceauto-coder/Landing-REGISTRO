@@ -15,3 +15,9 @@ body { @apply bg-bg text-ink antialiased; font-family: -apple-system, BlinkMacSy
 .input { @apply w-full rounded-[10px] border border-line bg-bg px-3.5 py-3 text-ink placeholder:text-mute/60 outline-none transition focus:border-violet focus:ring-2 focus:ring-violet/30; }
 .reveal { animation: up .6s ease both; }
 @keyframes up { from { opacity:0; transform: translateY(14px);} to { opacity:1; transform:none; } }
+
+/* Evita zoom automático en iOS al enfocar campos y respeta usuarios sin animaciones */
+input, select, button { font-size: 16px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto !important; transition: none !important; } }
+/* Notch / barras del sistema en celulares */
+body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }

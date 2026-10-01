@@ -5,6 +5,8 @@ export default function CountUp({ to, prefix = "", suffix = "", decimals = 0 }: 
   const ref = useRef<HTMLSpanElement>(null);
   const [v, setV] = useState(0);
   useEffect(() => {
+    // Sin animación para quien la tiene desactivada: se muestra el valor final
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setV(to); return; }
     const io = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
       io.disconnect();

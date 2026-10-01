@@ -8,7 +8,7 @@ const Cta = ({ children = "Asegurar Mi Lugar Gratis →" }: { children?: string 
   <a href={go} className="btn">{children}</a>
 );
 const Section = ({ chip, title, sub, children, id }: { chip?: string; title: React.ReactNode; sub?: string; children: React.ReactNode; id?: string }) => (
-  <section id={id} className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+  <section id={id} className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-10 py-16 sm:py-20">
     <div className="mb-10 text-center">
       {chip && <span className="chip mb-4">{chip}</span>}
       <h2 className="text-3xl font-extrabold sm:text-4xl">{title}</h2>
@@ -22,7 +22,7 @@ const Icon = ({ children }: { children: string }) => (
 );
 // Video propio (vertical 9:16) con póster; se reproduce con controles nativos
 const PromoVideo = () => (
-  <div className="mx-auto w-full max-w-[min(100%,320px)] lg:max-w-[380px] overflow-hidden rounded-3xl border border-violet-deep bg-card shadow-glow">
+  <div className="mx-auto w-full max-w-[min(100%,320px)] md:max-w-[340px] lg:max-w-[380px] overflow-hidden rounded-3xl border border-violet-deep bg-card shadow-glow">
     <video className="aspect-[9/16] w-full object-cover" src="/video/promo.mp4" poster="/video/poster.jpg"
       controls playsInline preload="metadata" />
   </div>
@@ -43,20 +43,20 @@ const Video = ({ src, title }: { src: string; title: string }) =>
 export default function App() {
   return (
     <div className="overflow-x-hidden">
-      <div className="bg-card2 px-4 py-2 text-center text-xs text-mute sm:text-sm">
+      <div className="bg-card2 px-4 sm:px-8 lg:px-10 py-2 text-center text-xs text-mute sm:text-sm">
         🌎 Conferencia 100% Virtual para Latinoamérica y EE.UU. · Acceso Gratuito · Sin conocimientos previos
       </div>
       <header className="border-b border-line">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-8 lg:px-10 py-4">
           <span className="grad-text text-xl font-bold">✦ {BRAND}</span>
-          <a href={go} className="rounded-[10px] border border-violet-deep bg-card2 px-4 py-2 text-sm font-semibold text-violet">Registro gratis</a>
+          <a href={go} className="rounded-[10px] border border-violet-deep bg-card2 px-4 sm:px-8 lg:px-10 py-2 text-sm font-semibold text-violet">Registro gratis</a>
         </nav>
       </header>
 
       {/* HERO */}
       <section className="relative">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-[radial-gradient(ellipse_at_top,rgba(157,91,244,.18),transparent_65%)]" />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-2 lg:items-start lg:py-20">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-8 lg:px-10 py-14 lg:grid-cols-2 lg:items-start lg:py-20">
           <div className="reveal">
             <div className="mb-5 flex flex-wrap gap-2"><span className="chip">⚡ 100% VIRTUAL · LATAM + EE.UU.</span><span className="chip !text-teal">GRATIS</span></div>
             <h1 className="text-4xl font-extrabold leading-tight sm:text-6xl">
@@ -75,14 +75,14 @@ export default function App() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-10 py-16 sm:py-20">
+        <div className="grid items-center gap-10 md:grid-cols-2">
           <PromoVideo />
-          <div className="order-first text-center lg:order-none lg:text-left">
+          <div className="order-first text-center md:order-none md:text-left">
             <span className="chip mb-4">Mira lo que aprenderás</span>
             <h2 className="text-3xl font-extrabold sm:text-4xl">La Conferencia IA <span className="grad-text">en acción</span></h2>
             <p className="mt-3 text-mute">En 40 segundos: cómo una IA puede operar tu negocio en piloto automático. Esto y mucho más lo construimos en vivo.</p>
-            <ul className="mx-auto mt-6 grid max-w-md gap-3 text-left lg:mx-0">
+            <ul className="mx-auto mt-6 grid max-w-md gap-3 text-left md:mx-0">
               {["Agentes de IA que atienden y venden por ti", "Automatizaciones sin escribir código", "Plantillas y prompts listos para usar"].map((x) => (
                 <li key={x} className="flex gap-3 rounded-xl border border-line bg-card p-3.5"><span className="text-teal">✓</span><span>{x}</span></li>
               ))}
@@ -195,7 +195,7 @@ export default function App() {
         </div>
       </Section>
 
-      <footer className="border-t border-line px-4 py-10 text-center text-sm text-mute">
+      <footer className="border-t border-line px-4 sm:px-8 lg:px-10 py-10 text-center text-sm text-mute">
         <div className="grad-text mb-2 text-lg font-bold">✦ {BRAND}</div>
         <p>Organizado por TU MARCA · Comunidad · Metodología práctica · Plantillas y prompts · Acompañamiento</p>
         <p className="mt-2">{SPEAKER.email} · {SPEAKER.phone}</p>
