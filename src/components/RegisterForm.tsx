@@ -44,12 +44,18 @@ export default function RegisterForm({ id }: { id?: string }) {
     const payload = {
       nombre: f.get("nombre"), apellidos: f.get("apellidos"),
       whatsapp: `${code}${phone}`, email, pais: `${flag} ${pais}`,
-      area_interes: f.get("area"), user_agent: navigator.userAgent, ...utm(),
+      area_interes: f.get("area"), consentimiento_marketing: true, pagina: location.href.split("?")[0],
+      user_agent: navigator.userAgent, ...utm(),
     };
     try {
       if (WEBHOOK_URL) {
-        const r = await fetch(WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-        if (!r.ok) throw new Error("webhook");
+        // Google Apps Script no responde CORS: se envía como text/plain y se asume éxito si no hay error de red
+        const gas = WEBHOOK_URL.includes("script.google.com");
+        const r = await fetch(WEBHOOK_URL, {
+          method: "POST", body: JSON.stringify(payload),
+          ...(gas ? { mode: "no-cors" as const, headers: { "Content-Type": "text/plain;charset=utf-8" } } : { headers: { "Content-Type": "application/json" } }),
+        });
+        if (!gas && !r.ok) throw new Error("webhook");
       } else console.info("[lead] (sin VITE_WEBHOOK_URL)", payload);
       // Stubs de tracking
       (window as any).fbq?.("track", "Lead");
@@ -107,6 +113,10 @@ export default function RegisterForm({ id }: { id?: string }) {
           <option value="" disabled>Selecciona una opción</option>
           {AREAS.map((a) => <option key={a}>{a}</option>)}
         </select>
+      </label>
+      <label className="flex items-start gap-3 text-xs text-mute">
+        <input name="consent" type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 accent-violet" />
+        <span>Acepto recibir información, recordatorios y promociones por correo y WhatsApp, y el tratamiento de mis datos para fines de marketing. Puedo darme de baja cuando quiera. *</span>
       </label>
       {/* honeypot oculto */}
       <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
