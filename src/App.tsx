@@ -22,7 +22,7 @@ const Icon = ({ children }: { children: string }) => (
 );
 // Video propio (vertical 9:16) con póster; se reproduce con controles nativos
 const PromoVideo = () => (
-  <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl border border-line bg-card shadow-glow">
+  <div className="mx-auto w-full max-w-[min(100%,320px)] lg:max-w-[380px] overflow-hidden rounded-3xl border border-violet-deep bg-card shadow-glow">
     <video className="aspect-[9/16] w-full object-cover" src="/video/promo.mp4" poster="/video/poster.jpg"
       controls playsInline preload="metadata" />
   </div>
@@ -75,9 +75,22 @@ export default function App() {
         </div>
       </section>
 
-      <Section chip="Mira lo que aprenderás" title={<>La Conferencia IA <span className="grad-text">en acción</span></>} sub="Conoce el contenido, el estilo y la profundidad de lo que vivirás.">
-        <div className="mx-auto max-w-3xl"><PromoVideo /><div className="mt-6 text-center"><Cta>Quiero Asistir Gratis →</Cta></div></div>
-      </Section>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <PromoVideo />
+          <div className="order-first text-center lg:order-none lg:text-left">
+            <span className="chip mb-4">Mira lo que aprenderás</span>
+            <h2 className="text-3xl font-extrabold sm:text-4xl">La Conferencia IA <span className="grad-text">en acción</span></h2>
+            <p className="mt-3 text-mute">En 40 segundos: cómo una IA puede operar tu negocio en piloto automático. Esto y mucho más lo construimos en vivo.</p>
+            <ul className="mx-auto mt-6 grid max-w-md gap-3 text-left lg:mx-0">
+              {["Agentes de IA que atienden y venden por ti", "Automatizaciones sin escribir código", "Plantillas y prompts listos para usar"].map((x) => (
+                <li key={x} className="flex gap-3 rounded-xl border border-line bg-card p-3.5"><span className="text-teal">✓</span><span>{x}</span></li>
+              ))}
+            </ul>
+            <div className="mt-8"><Cta>Quiero Asistir Gratis →</Cta></div>
+          </div>
+        </div>
+      </section>
 
       <Section chip="Disponible para Latinoamérica y EE.UU." title={<>Conéctate <span className="grad-text">desde tu país</span></>} sub="La conferencia es en vivo. Elige el horario según tu zona horaria.">
         <div className="mb-10"><Countdown /></div>
