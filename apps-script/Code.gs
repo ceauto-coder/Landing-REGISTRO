@@ -16,7 +16,7 @@ function doPost(e) {
   try {
     const d = JSON.parse(e.postData.contents);
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sh = ss.getSheetByName(SHEET) || ss.insertSheet(SHEET);
+    const sh = ss.getSheetByName(SHEET) || ss.getSheets()[0].setName(SHEET);
     if (sh.getLastRow() === 0) sh.appendRow(HEADERS);
 
     const row = [

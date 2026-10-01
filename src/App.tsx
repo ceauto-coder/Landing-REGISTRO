@@ -48,7 +48,7 @@ export default function App() {
       </div>
       <header className="border-b border-line">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-8 lg:px-10 py-4">
-          <span className="grad-text text-xl font-bold">✦ {BRAND}</span>
+          <span className="grad-text text-base font-bold leading-tight sm:text-xl">✦ {BRAND}</span>
           <a href={go} className="rounded-[10px] border border-violet-deep bg-card2 px-4 sm:px-8 lg:px-10 py-2 text-sm font-semibold text-violet">Registro gratis</a>
         </nav>
       </header>
@@ -186,7 +186,7 @@ export default function App() {
             ["¿Qué herramientas se enseñan?", "ChatGPT, Claude, Gemini, generadores de imagen, audio y video, y plataformas no-code para agentes y automatizaciones."],
             ["¿Incluye un curso de agentes de IA?", "Sí. Un bloque completo: cómo diseñarlos, conectarlos a tus herramientas y automatizar tareas sin programar."],
             ["¿Desde qué países puedo conectarme?", "Desde cualquier país de Latinoamérica, Estados Unidos y España. Publicamos el horario para cada zona."],
-            ["¿Entregan certificado o materiales?", "Recibes las plantillas, prompts y recursos usados durante la sesión, además de acceso a la comunidad."]].map(([q, a]) => (
+            ["¿Entregan certificado o materiales?", "Sí. Al completar la conferencia recibes tu certificación gratis, además de las plantillas, prompts y recursos usados durante la sesión y acceso a la comunidad."]].map(([q, a]) => (
             <details key={q} className="group rounded-xl border border-line bg-card p-5">
               <summary className="flex cursor-pointer list-none items-center justify-between font-semibold">{q}<span className="text-violet transition group-open:rotate-45">+</span></summary>
               <p className="mt-3 text-mute">{a}</p>
