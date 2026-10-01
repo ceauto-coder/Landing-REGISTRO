@@ -1,4 +1,4 @@
-import { AGENDA, BRAND, SCHEDULES, SPEAKER, VIDEO_2 } from "./config";
+import { AGENDA, BRAND, SCHEDULES, SPEAKER } from "./config";
 import RegisterForm from "./components/RegisterForm";
 import Countdown from "./components/Countdown";
 
@@ -28,18 +28,13 @@ const PromoVideo = () => (
       controls playsInline preload="metadata" />
   </div>
 );
-const Video = ({ src, title }: { src: string; title: string }) =>
-  // En vista previa embebida (VITE_NO_EMBED) no se permiten iframes: se muestra un enlace al video
-  import.meta.env.VITE_NO_EMBED ? (
-    <a href={src.replace("/embed/", "/watch?v=")} target="_blank" rel="noreferrer"
-      className="grid aspect-video place-items-center rounded-2xl border border-line bg-card text-center">
-      <span><span className="grad-text block text-5xl">▶</span><span className="mt-2 block text-mute">{title} · ver en YouTube</span></span>
-    </a>
-  ) : (
-    <div className="aspect-video overflow-hidden rounded-2xl border border-line">
-      <iframe className="h-full w-full" src={src} title={title} loading="lazy" allowFullScreen />
-    </div>
-  );
+// Video del speaker (16:9) con póster y controles nativos
+const SpeakerVideo = () => (
+  <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-glow">
+    <video className="aspect-video w-full object-cover" src={`${import.meta.env.BASE_URL}video/speaker.mp4`}
+      poster={`${import.meta.env.BASE_URL}video/speaker-poster.jpg`} controls playsInline preload="metadata" />
+  </div>
+);
 
 export default function App() {
   return (
@@ -140,7 +135,7 @@ export default function App() {
 
       <Section chip="Tu guía en este viaje" title={<>¿Quién será el <span className="grad-text">Speaker</span>?</>}>
         <div className="grid items-center gap-8 lg:grid-cols-2">
-          <Video src={VIDEO_2} title="Speaker" />
+          <SpeakerVideo />
           <div className="card p-6">
             {SPEAKER.photo
               ? <img src={`${import.meta.env.BASE_URL}${SPEAKER.photo}`} alt={SPEAKER.name} loading="lazy" className="mb-4 h-28 w-28 rounded-2xl border border-violet-deep object-cover object-top shadow-glow" />

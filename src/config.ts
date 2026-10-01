@@ -2,14 +2,13 @@
 export const BRAND = "Conferencia con certificación GRATIS"; // nombre de marca
 export const WHATSAPP_GROUP = "https://chat.whatsapp.com/EvqlrnzHVg24V0GZYj3TEb"; // grupo al que se invita tras el registro
 export const EVENT_DATE = "2026-11-15T18:00:00-05:00"; // fecha/hora del evento (Colombia UTC-5)
-export const VIDEO_2 = "https://www.youtube.com/embed/tgMzFSH6zFE"; // video del speaker
 // Webhook (Make / n8n / GoHighLevel / CRM). Se define en .env como VITE_WEBHOOK_URL
 export const WEBHOOK_URL = (import.meta.env.VITE_WEBHOOK_URL as string | undefined) ?? "";
 export const SPEAKER = {
   name: "David Rodriguez Pinto",
   role: "Fundador de IA University",
   // Foto: guarda la imagen en public/speaker.jpg y pon "speaker.jpg" (vacío = ícono por defecto)
-  photo: "",
+  photo: "speaker.jpg",
   bio: "Educador y emprendedor en inteligencia artificial. Ayuda a personas y empresas a entender y usar la IA de forma práctica, simple y rentable.",
   // Contacto del organizador: déjalos vacíos para ocultarlos en la página
   instagram: "",
