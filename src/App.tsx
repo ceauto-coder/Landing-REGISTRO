@@ -1,7 +1,6 @@
 import { AGENDA, BRAND, SCHEDULES, SPEAKER, VIDEO_2 } from "./config";
 import RegisterForm from "./components/RegisterForm";
 import Countdown from "./components/Countdown";
-import CountUp from "./components/CountUp";
 
 const go = "#registro";
 const Cta = ({ children = "Asegurar Mi Lugar Gratis →" }: { children?: string }) => (
@@ -102,19 +101,6 @@ export default function App() {
         <p className="mt-6 text-center text-xs text-mute">* Horario base: 6:00 PM – 10:00 PM Hora Colombia (UTC-5). En EE.UU. puede variar según zona horaria y horario de verano.</p>
       </Section>
 
-      <Section title={<>La IA no viene. <span className="grad-text">Ya está aquí.</span></>} sub="La pregunta no es si debes aprender, sino cuánto tiempo más puedes esperar.">
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {[
-            [<CountUp to={407} prefix="$" suffix="B" />, "Mercado Global de IA", "Proyección para 2027"],
-            [<CountUp to={77} suffix="%" />, "Empresas usando IA", "Ya usan o exploran IA"],
-            [<CountUp to={60} suffix="%" />, "Reducción de costos", "Con automatización inteligente"],
-            [<CountUp to={37.7} suffix="%" decimals={1} />, "Crecimiento anual", "Expansión del sector"],
-          ].map(([n, t, s], i) => (
-            <div key={i} className="card p-6 text-center"><div className="grad-text text-4xl font-extrabold">{n}</div><div className="mt-2 font-semibold">{t as string}</div><div className="text-sm text-mute">{s as string}</div></div>
-          ))}
-        </div>
-      </Section>
-
       <Section title={<>Lo que aprenderás <span className="grad-text">en 4 horas</span></>} sub="Conocimiento práctico y aplicable desde el primer día">
         <div className="grid gap-5 md:grid-cols-3">
           {[["🧠", "Fundamentos de IA", "Qué es la IA, cómo funciona la IA generativa, Machine Learning y Deep Learning. Conceptos claros para cualquier nivel."],
@@ -128,27 +114,14 @@ export default function App() {
         </ul>
       </Section>
 
-      <Section title={<>Cursos de IA <span className="grad-text">incluidos</span></>} sub="Una capacitación desde cero con las herramientas más buscadas de 2026.">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {[["💬", "Curso de ChatGPT (OpenAI)", "Prompting profesional, GPTs personalizados y uso de ChatGPT para escribir, analizar datos y resolver tareas."],
-            ["✨", "Curso de Claude (Anthropic)", "Documentos largos, análisis, redacción y proyectos: cuándo conviene y cómo sacarle el máximo."],
-            ["🔎", "Curso de Gemini (Google)", "IA de Google aplicada a productividad, investigación y contenido multimodal."],
-            ["🤖", "Curso de agentes de IA", "Agentes y automatizaciones no-code: atención al cliente, ventas, reportes y seguimiento."],
-            ["🎬", "IA para creación de contenido", "Textos, imágenes, audio y video con IA para redes, marketing y branding personal."],
-            ["⚡", "Vibe Coding", "Crea apps y landing pages describiendo lo que quieres, sin escribir código."]].map(([i, t, d]) => (
-            <div key={t} className="card p-6"><Icon>{i}</Icon><h3 className="text-center font-bold">{t}</h3><p className="mt-2 text-center text-sm text-mute">{d}</p></div>
-          ))}
-        </div>
-      </Section>
-
       <Section chip="Programa completo" title={<>Agenda de la <span className="grad-text">Conferencia</span></>} sub="19 temas desde los fundamentos hasta las aplicaciones más avanzadas, en una sesión virtual de 4 horas.">
-        <ol className="grid gap-3 md:grid-cols-2">
+        <details className="group mx-auto max-w-4xl"><summary className="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-[10px] border border-violet-deep bg-card2 px-5 py-3 font-semibold text-violet">Ver los 19 temas <span className="transition group-open:rotate-45">+</span></summary><div className="mt-6"><ol className="grid gap-3 md:grid-cols-2">
           {AGENDA.map((t, i) => (
             <li key={t} className="flex items-center gap-4 rounded-xl border border-line bg-card p-4">
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand text-sm font-bold">{i + 1}</span><span>{t}</span>
             </li>
           ))}
-        </ol>
+        </ol></div></details>
         <div className="mt-8 grid grid-cols-2 gap-4 text-center sm:grid-cols-4">
           {[["19", "Temas"], ["4h", "Duración"], ["100%", "Online"], ["Gratis", "Acceso"]].map(([n, l]) => <div key={l}><div className="grad-text text-3xl font-extrabold">{n}</div><div className="text-sm text-mute">{l}</div></div>)}
         </div>
