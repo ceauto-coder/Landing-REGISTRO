@@ -1,4 +1,4 @@
-import { AGENDA, BRAND, SCHEDULES, SPEAKER, VIDEO_1, VIDEO_2 } from "./config";
+import { AGENDA, BRAND, SCHEDULES, SPEAKER, VIDEO_2 } from "./config";
 import RegisterForm from "./components/RegisterForm";
 import Countdown from "./components/Countdown";
 import CountUp from "./components/CountUp";
@@ -19,6 +19,13 @@ const Section = ({ chip, title, sub, children, id }: { chip?: string; title: Rea
 );
 const Icon = ({ children }: { children: string }) => (
   <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-brand text-2xl shadow-glow">{children}</div>
+);
+// Video propio (vertical 9:16) con póster; se reproduce con controles nativos
+const PromoVideo = () => (
+  <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl border border-line bg-card shadow-glow">
+    <video className="aspect-[9/16] w-full object-cover" src="/video/promo.mp4" poster="/video/poster.jpg"
+      controls playsInline preload="metadata" />
+  </div>
 );
 const Video = ({ src, title }: { src: string; title: string }) =>
   // En vista previa embebida (VITE_NO_EMBED) no se permiten iframes: se muestra un enlace al video
@@ -69,7 +76,7 @@ export default function App() {
       </section>
 
       <Section chip="Mira lo que aprenderás" title={<>La Conferencia IA <span className="grad-text">en acción</span></>} sub="Conoce el contenido, el estilo y la profundidad de lo que vivirás.">
-        <div className="mx-auto max-w-3xl"><Video src={VIDEO_1} title="Conferencia IA en acción" /><div className="mt-6 text-center"><Cta>Quiero Asistir Gratis →</Cta></div></div>
+        <div className="mx-auto max-w-3xl"><PromoVideo /><div className="mt-6 text-center"><Cta>Quiero Asistir Gratis →</Cta></div></div>
       </Section>
 
       <Section chip="Disponible para Latinoamérica y EE.UU." title={<>Conéctate <span className="grad-text">desde tu país</span></>} sub="La conferencia es en vivo. Elige el horario según tu zona horaria.">

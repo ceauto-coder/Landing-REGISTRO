@@ -1,7 +1,6 @@
 // ---- Configuración editable de la landing ----
 export const BRAND = "IA Conferencia"; // nombre de marca (reemplazar)
 export const EVENT_DATE = "2026-11-15T18:00:00-05:00"; // fecha/hora del evento (Colombia UTC-5)
-export const VIDEO_1 = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // video "conferencia en acción" (reemplazar)
 export const VIDEO_2 = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // video del speaker (reemplazar)
 // Webhook (Make / n8n / GoHighLevel / CRM). Se define en .env como VITE_WEBHOOK_URL
 export const WEBHOOK_URL = (import.meta.env.VITE_WEBHOOK_URL as string | undefined) ?? "";
