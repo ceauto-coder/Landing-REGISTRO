@@ -1,6 +1,6 @@
 import { FormEvent, useMemo, useState } from "react";
 import { COUNTRIES } from "../countries";
-import { WEBHOOK_URL } from "../config";
+import { WEBHOOK_URL, WHATSAPP_GROUP } from "../config";
 
 const AREAS = [
   "Emprendedor / Dueño de negocio",
@@ -72,7 +72,10 @@ export default function RegisterForm({ id }: { id?: string }) {
       <div id={id} className="card p-8 text-center">
         <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-brand text-2xl">✓</div>
         <h3 className="text-2xl font-bold">¡Listo! Estás registrado</h3>
-        <p className="mt-2 text-mute">Revisa tu correo y WhatsApp: ahí te enviaremos el acceso a la conferencia.</p>
+        <p className="mt-2 text-mute">Último paso: únete al grupo de WhatsApp. Ahí enviamos el acceso, los recordatorios y los materiales de la conferencia.</p>
+        <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer"
+          onClick={() => (window as any).fbq?.("trackCustom", "JoinWhatsAppGroup")}
+          className="btn mt-6 w-full !bg-none !bg-[#25D366] !text-black">Unirme al grupo de WhatsApp</a>
       </div>
     );
 

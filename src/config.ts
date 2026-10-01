@@ -1,5 +1,6 @@
 // ---- Configuración editable de la landing ----
 export const BRAND = "Conferencia con certificación GRATIS"; // nombre de marca
+export const WHATSAPP_GROUP = "https://chat.whatsapp.com/EvqlrnzHVg24V0GZYj3TEb"; // grupo al que se invita tras el registro
 export const EVENT_DATE = "2026-11-15T18:00:00-05:00"; // fecha/hora del evento (Colombia UTC-5)
 export const VIDEO_2 = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // video del speaker (reemplazar)
 // Webhook (Make / n8n / GoHighLevel / CRM). Se define en .env como VITE_WEBHOOK_URL
