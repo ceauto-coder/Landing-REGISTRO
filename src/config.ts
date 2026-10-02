@@ -1,0 +1,48 @@
+// ---- Configuración editable de la landing ----
+export const BRAND = "Conferencia con certificación GRATIS"; // nombre de marca
+export const WHATSAPP_GROUP = "https://chat.whatsapp.com/EvqlrnzHVg24V0GZYj3TEb"; // grupo al que se invita tras el registro
+export const EVENT_DATE = "2026-11-15T18:00:00-05:00"; // fecha/hora del evento (Colombia UTC-5)
+// Webhook (Make / n8n / GoHighLevel / CRM). Se define en .env como VITE_WEBHOOK_URL
+export const WEBHOOK_URL = (import.meta.env.VITE_WEBHOOK_URL as string | undefined) ?? "";
+export const SPEAKER = {
+  name: "David Rodriguez Pinto",
+  role: "Fundador de IA University",
+  // Foto: guarda la imagen en public/speaker.jpg y pon "speaker.jpg" (vacío = ícono por defecto)
+  photo: "speaker.jpg",
+  bio: "Educador y emprendedor en inteligencia artificial. Ayuda a personas y empresas a entender y usar la IA de forma práctica, simple y rentable.",
+  // Contacto del organizador: déjalos vacíos para ocultarlos en la página
+  instagram: "",
+  email: "",
+  phone: "",
+};
+
+export const SCHEDULES = [
+  ["🇲🇽", "México", "5:00 PM"],
+  ["🇨🇴", "Colombia / Perú", "6:00 PM"],
+  ["🇻🇪", "Venezuela / Bolivia", "7:00 PM"],
+  ["🇦🇷", "Argentina / Chile", "8:00 PM"],
+  ["🇺🇸", "Miami / Nueva York", "7:00 PM"],
+  ["🇺🇸", "Los Ángeles", "4:00 PM"],
+] as const;
+
+export const AGENDA = [
+  "Impacto actual de la Inteligencia Artificial",
+  "Demostración rápida: Vibe Coding en acción",
+  "Presentación del conferencista",
+  "Por qué optimizar procesos con IA",
+  "Creación de contenido con IA y herramientas clave",
+  "Cómo crear soluciones, negocios y cursos en 1 minuto con IA",
+  "Clonación de conocimiento para crear cursos",
+  "Crecimiento y proyección de la IA",
+  "La nueva demanda que generará la IA",
+  "Cómo funciona la IA: IA, Machine Learning y Deep Learning",
+  "Qué son los LLM (Modelos de Lenguaje)",
+  "Evolución de la Inteligencia Artificial",
+  "Qué son los Agentes de IA",
+  "Por qué los Agentes son el futuro",
+  "Actualizaciones recientes en herramientas de IA",
+  "Creación de modelos propios con Vibe Coding",
+  "Prompt Engineering: cómo hablarle bien a la IA",
+  "Privacidad y ética en la era de la IA",
+  "Conclusiones",
+];
